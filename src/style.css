@@ -1,0 +1,46 @@
+.input-serch{
+    position: relative;
+    width: 25%;
+    
+}
+.serch-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black;
+    color: white;
+}
+span{
+    color: red;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.error{
+    border: 1px solid red !important;
+}
+.error:focus{
+    box-shadow: 0 0 5px red !important;
+}
+.mobile-menu{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 100;
+}
+.show-menu{
+    left: 0;
+}
+.main-backgroun{
+    background-image: url(../src/img/login_pg_bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.384);
+    color: white;
+    height: 100vh; 
+}
+.para{
+    font-size: 1.1rem;
+    font-weight: 600;
+}

@@ -1,24 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import AdminLayout from "./CommonComponent/AdminLayout";
+import Dashboard from "./component/Dashboard";
+import Addmovies from "./component/Addmovies";
+import Allmovies from "./component/Allmovies";
+import Login from "./component/Login";
+import Signup from "./component/Signup";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import PrivateComponent from "./CommonComponent/PrivateComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <AdminLayout>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/"
+            element={
+              <PrivateComponent>
+                <Dashboard />
+              </PrivateComponent>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateComponent>
+                <Dashboard />
+              </PrivateComponent>
+            }
+          />
+          <Route
+            path="/add-movie"
+            element={
+              <PrivateComponent>
+                <Addmovies />
+              </PrivateComponent>
+            }
+          />
+          <Route
+            path="/all-movies"
+            element={
+              <PrivateComponent>
+                <Allmovies />
+              </PrivateComponent>
+            }
+          />
+        </Routes>
+      </AdminLayout>
+    </Provider>
   );
 }
 
